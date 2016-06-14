@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>岳阳华盛黄沙销售有限公司</title>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <script>
+        window.onload=function(){
+            function a() {
+                var oBox=document.getElementById('box');
+                var oBan=document.getElementById('ban');
+                var oBtn=document.getElementById('btn');
+                var aBtn=oBtn.getElementsByTagName('span');
+                var aDiv=oBox.getElementsByTagName('li');
+
+                for(var i=0; i<aBtn.length; i++){
+                    aBtn[i].index=i;
+                    aBtn[i].onclick=function(){
+                        tab(this.index);
+                        n=this.index;
+                    };
+                }
+                var n=0;
+                function prev(){
+                    n--;
+                    if(n<0)n=aBtn.length-1;
+                    tab(n);
+                }
+                function next(){
+                    n++;
+                    if(n>aBtn.length-1)n=0;
+                    tab(n);
+                }
+                var timer=null;
+                timer=setInterval(next, 2000);
+                function tab(n){
+                    for(var i=0; i<aBtn.length; i++){
+                        aBtn[i].className='';
+                        aDiv[i].className='';
+                    }
+                    aBtn[n].className='active';
+                    aDiv[n].className='show';
+                }
+                oBox.onmouseover=function(){
+                    clearInterval(timer);
+                };
+                oBox.onmouseout=function(){
+                    clearInterval(timer);
+                    timer=setInterval(next, 2000);
+                };
+            };
+            a();
+
+
+            function b() {
+                var oUl=document.getElementById('ul1');
+                var aLi=oUl.getElementsByTagName('li');
+
+                oUl.innerHTML+=oUl.innerHTML;
+                oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+                var n=0;
+                setInterval(function(){
+                    n-=1;
+                    if(n<=-oUl.offsetWidth/2){
+                        n=0;
+                    }
+                    oUl.style.left=n+'px';
+                },30);
+            };
+            b();
+        }
+    </script>
+</head>
+<body scroll="no" style="overflow-x:hidden";>
+<!--top-->
+<div class="top_box">
+    <div class="top">
+        <img src="images/index_02.jpg" />
+    </div>
+</div>
+<div class="menu_box">
+    <ul class="menu clearfix">
+        <li><a href="javascript:;">网站首页</a></li>
+        <li><a href="javascript:;">公司简介</a></li>
+        <li><a href="javascript:;">产品展示</a></li>
+        <li><a href="javascript:;">公司新闻</a></li>
+        <li><a href="javascript:;">联系我们</a></li>
+    </ul>
+</div>
+<div class="banner" id="box">
+    <ul id="ban">
+        <li class="show"><img src="images/ban_1.jpg" /></li>
+        <li><img src="images/ban_2.jpg" /></li>
+        <li><img src="images/ban_3.jpg" /></li>
+        <li><img src="images/ban_4.jpg" /></li>
+    </ul>
+    <div id="btn" class="btn clearfix">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div class="company clearfix">
+    <div class="left">
+        <img src="images/index_09.jpg"/>
+        <div class="content_l">
+            <h3>岳阳华盛黄沙销售有限公司</h3>
+            <p>湖南省岳阳市洞庭湖区域是长江乃至全国最大的黄沙开采销售的集散地。岳阳华盛黄沙销售有限公司是地处洞庭湖畔一家具有较大规模的黄沙销售公司。</p>
+            <p>公司主要销售洞庭湖毛沙、天然河沙、建筑用沙、水洗沙、粗沙、中粗沙、细沙等，产品品质上乘,是高铁,房地产,轻轨，地铁，路桥和管桩公司等大型工程的主要建筑材料...</p>
+            <a href="javascript:;"><img src="images/more.jpg" /></a>
+        </div>
+    </div>
+    <div class="right">
+        <img src="images/index_10.jpg"/>
+        <div class="contact_r">
+            <div class="contact_tit">
+                <h3>联系人：刘先生</h3>
+                <p>电&nbsp;话：18973030448</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product"></div>
+<div id="move_box" class="move_box">
+    <ul id="ul1" class="clearfix">
+        <li><img src="cp/1.jpg"></li>
+        <li><img src="cp/2.jpg"></li>
+        <li><img src="cp/3.jpg"></li>
+        <li><img src="cp/4.jpg"></li>
+        <li><img src="cp/5.jpg"></li>
+        <li><img src="cp/6.jpg"></li>
+        <li><img src="cp/7.jpg"></li>
+    </ul>
+</div>
+<div class="bottom_c">
+    <p>公司介绍  |  产品展示  |  网站首页  |  联络我们</p>
+    <i>Copyright @ 岳阳华盛黄沙销售有限公司 All Right Reserved</i>
+</div>
+</body>
+</html>
